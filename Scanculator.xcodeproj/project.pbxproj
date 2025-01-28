@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5F5A8FA52D471BF90042669A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 5F5A8FA42D471BF90042669A /* CodeScanner */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5F5A8F282D4719870042669A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F5A8FA52D471BF90042669A /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = Scanculator;
 			packageProductDependencies = (
+				5F5A8FA42D471BF90042669A /* CodeScanner */,
 			);
 			productName = Scanculator;
 			productReference = 5F5A8F172D4719860042669A /* Scanculator.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 5F5A8F0E2D4719860042669A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5F5A8FA32D471BF90042669A /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5F5A8F182D4719860042669A /* Products */;
 			projectDirPath = "";
@@ -396,6 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scanculator/Preview Content\"";
+				DEVELOPMENT_TEAM = CN838KBPF6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,6 +434,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scanculator/Preview Content\"";
+				DEVELOPMENT_TEAM = CN838KBPF6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -552,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5F5A8FA32D471BF90042669A /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5F5A8FA42D471BF90042669A /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F5A8FA32D471BF90042669A /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5F5A8F0F2D4719860042669A /* Project object */;
 }
