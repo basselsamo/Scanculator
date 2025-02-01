@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("currency") private var currency = "€"
-    @State private var showingResetAlert = false
+//    @AppStorage("currency") private var currency = "€"
+    @State private var showingDeleteAllAlert = false
     @State private var showingDeleteSessionsAlert = false
     @State private var showingDeleteProductsAlert = false
     @ObservedObject var sessionViewModel: SessionViewModel
@@ -24,7 +24,26 @@ struct SettingsView: View {
                             .foregroundColor(.blue)
                         Text("Currency")
                         Spacer()
-                        Text(currency)
+                        Text("€")
+                            .foregroundColor(.gray)
+                    }
+                }
+                
+                Section(header: Text("About")) {
+                    HStack {
+                        Image(systemName: "info.circle.fill")
+                            .foregroundColor(.blue)
+                        Text("Version")
+                        Spacer()
+                        Text("1.0.0")
+                            .foregroundColor(.gray)
+                    }
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .foregroundColor(.blue)
+                        Text("Developer")
+                        Spacer()
+                        Text("Bassel Samo")
                             .foregroundColor(.gray)
                     }
                 }
@@ -48,24 +67,13 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Button(action: { showingResetAlert = true }) {
+                    Button(action: { showingDeleteAllAlert = true }) {
                         HStack {
                             Image(systemName: "trash.circle.fill")
                                 .foregroundColor(.red)
-                            Text("Reset All Data")
+                            Text("Delete All App Data")
                                 .foregroundColor(.red)
                         }
-                    }
-                }
-                
-                Section(header: Text("About")) {
-                    HStack {
-                        Image(systemName: "info.circle.fill")
-                            .foregroundColor(.blue)
-                        Text("Version")
-                        Spacer()
-                        Text("1.0.0")
-                            .foregroundColor(.gray)
                     }
                 }
             }
@@ -89,7 +97,7 @@ struct SettingsView: View {
         } message: {
             Text("This will delete all products from the database. This action cannot be undone.")
         }
-        .alert("Reset All Data?", isPresented: $showingResetAlert) {
+        .alert("Reset All Data?", isPresented: $showingDeleteAllAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Reset", role: .destructive) {
                 DataService.shared.resetAllData()
