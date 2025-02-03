@@ -185,13 +185,13 @@ struct ProductDetailView: View {
                 .background(Color(UIColor.systemBackground))
                 
                 // Product Details Input
-                VStack(spacing: 24) {
+                VStack() {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Product Name")
                             .font(.headline)
                             .foregroundColor(.gray)
                         TextField("Enter product name", text: $editedName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .underlinedTextFieldStyle()
                             .font(.body)
                             .padding(.bottom, 8)
                     }
@@ -201,7 +201,7 @@ struct ProductDetailView: View {
                             .font(.headline)
                             .foregroundColor(.gray)
                         TextField("Enter price", text: $editedPrice)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .underlinedTextFieldStyle()
                             .font(.body)
                             .keyboardType(.decimalPad)
                             .padding(.bottom, 8)

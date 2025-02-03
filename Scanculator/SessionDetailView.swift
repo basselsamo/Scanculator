@@ -289,11 +289,14 @@ struct SessionDetailView: View {
                         // Product Info Header
                         VStack(spacing: 8) {
                             Text(product.product.name)
-                                .font(.title2)
                                 .fontWeight(.bold)
-                            Text("Barcode: \(product.product.barcode)")
-                                .font(.caption)
-                                .foregroundColor(.gray)
+                            HStack {
+                                Image(systemName: "barcode")
+                                    .foregroundColor(.gray)
+                                Text("\(product.product.barcode)")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -302,9 +305,9 @@ struct SessionDetailView: View {
                         Form {
                             Section(header: Text("Quantity")) {
                                 HStack {
-                                    Text("Current Quantity: \(currentQuantity)")
+                                    Text("\(currentQuantity)")
                                     Spacer()
-                                    HStack(spacing: 20) {
+                                    HStack(spacing: 30) {
                                         Button(action: {
                                             if currentQuantity > 1 {
                                                 withAnimation {
@@ -336,12 +339,13 @@ struct SessionDetailView: View {
                             
                             Section(header: Text("Unit Price")) {
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text("Current Price: €\(String(format: "%.2f", currentPrice))")
-                                        .foregroundColor(.gray)
+//                                    Text("Current Price: €\(String(format: "%.2f", currentPrice))")
+//                                        .foregroundColor(.gray)
                                     
-                                    TextField("Enter price", text: $priceText)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    TextField("Enter new price", text: $priceText)
+                                        .underlinedTextFieldStyle()
                                         .font(.body)
+                                        .padding(.bottom, 8)
                                         .keyboardType(.decimalPad)
                                         .onChange(of: priceText) { newValue in
                                             if let newPrice = Double(newValue.replacingOccurrences(of: ",", with: ".")),
@@ -360,12 +364,12 @@ struct SessionDetailView: View {
                                     Spacer()
                                     Text("€\(String(format: "%.2f", currentPrice * Double(currentQuantity)))")
                                         .font(.headline)
-                                        .foregroundColor(.green)
+                                        .foregroundColor(.red)
                                 }
                             }
                         }
                     }
-                    .navigationTitle("Adjust Product")
+                    .navigationTitle("Price & Quantity")
                     .navigationBarItems(
                         trailing: Button("Done") {
                             showingAdjustment = false

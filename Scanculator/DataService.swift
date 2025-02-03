@@ -53,5 +53,10 @@ class DataService {
         UserDefaults.standard.removeObject(forKey: key)
         UserDefaults.standard.synchronize()
     }
+    
+    func findProduct(by barcode: String) -> Product? {
+        let products = loadProducts()
+        return products.first { $0.barcode == barcode }
+    }
 }
 

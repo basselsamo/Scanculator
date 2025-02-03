@@ -50,7 +50,7 @@ struct NewSessionView: View {
                         .font(.headline)
                         .foregroundColor(.gray)
                     TextField("Enter session name", text: $sessionName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .underlinedTextFieldStyle()
                         .font(.body)
                         .padding(.bottom, 8)
                 }
